@@ -1,0 +1,14 @@
+{
+  "name": "zenn-repo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hankei6km <hankei6km@gmail.com> (https://github.com/hankei6km)",
+  "license": "MIT",
+  "dependencies": {
+    "zenn-cli": "^0.1.100"
+  }
+}

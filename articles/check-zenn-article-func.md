@@ -20,10 +20,12 @@ published: true
 
 ## 画像
 
-![薄暗い林道](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/b0aeb1b1063c4665840e228a9283ffc0/cover_image01.jpg?w=600\&h=337)
+![晴れている河川敷](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/f541aa95ddcd47a3a2e2fe93f98da7b3/sunny-picture.jpg?w=600\&h=337)
 
 ## 注釈
 
 注釈を記述してみる[^1]。
 
 [^1]: 脚注の記述。
+
+##

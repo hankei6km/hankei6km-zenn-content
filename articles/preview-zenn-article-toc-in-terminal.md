@@ -37,6 +37,8 @@ FrontMatter + Markdown を扱うので本来ならば [`gray-matter`](https://gi
 *   コードブロック内の Markdown
 *   `---` を使った見出し
 
+追記: [`remark-cli`](https://github.com/remarkjs/remark/tree/main/packages/remark-cli) を使う方法も[試してみたので](https://zenn.dev/link/comments/4f15dba248724b)問題が多いようなら切り替えることにします。
+
 ### 見出しの整形
 
 `sed` と Bash の文字列操作で対応します。

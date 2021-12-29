@@ -224,7 +224,9 @@ Zenn 独自の記法ではキャプション風の表示は以下の方法で対
 
 テキストエディターからペーストするとき気になる場合は対策が必要です(remote-cms-content では「警告を出す」「変換する」ことで対応しています)。
 
-また、(コードブロックに限った話ではないですが) `&` のエスケープ処理が独特なので `<` などを実体参照で記述することが難しいです([micoCMS のメモとサンプル & のエスケープ](https://hankei6km.github.io/test-collage-cms-content/microcms-plain#h0722d3ceb0))
+また、(コードブロックに限った話ではないですが) `&` のエスケープ処理が独特なので `＆gt;` などを記述することが難しいです(ここではいわゆる全角で `&` を記述することで回避しています)。
+
+参考: [micoCMS のメモとサンプル - & のエスケープ](https://hankei6km.github.io/test-collage-cms-content/microcms-plain#h0722d3ceb0)
 
 ![拡張されたコードブロック内に記述しているスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/d3448a1e2d94411298b983111a0b83fd/writing-article-with-headless-cms-codeblock.png?w=600\&h=270\&auto=compress%2Cformat)
 

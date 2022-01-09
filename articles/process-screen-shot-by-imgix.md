@@ -47,7 +47,7 @@ imgix はサーバー上のファイルを GET する時にクエリーパラメ
 
 また、切り出したスクリーンショットの余白が狭いときは(図 2-2)、[背景色を指定](https://docs.imgix.com/apis/rendering/fill/bg)しながら[パディングの追加](https://docs.imgix.com/apis/rendering/border-and-padding/pad)もできます(図 2-3)。
 
-ただし、余白的な背景色を指定するには 1 つ注意点があります。[`Automatic`](https://docs.imgix.com/apis/rendering/auto/auto) パラメーターなどの加工により画像の色が変更されることもあるため、背景色を指定する場合は「実際に表示されている色」をスポイトツールなどで調べる必要があります[^palette]。
+ただし、余白的な背景色を指定するには注意点があります。[`Automatic`](https://docs.imgix.com/apis/rendering/auto/auto) パラメーターなどの加工により画像の色が変更されることもあるため、背景色を指定する場合は「実際に表示されている色」をスポイトツールなどで調べる必要があります[^palette]。また、拡大するとどうしても境目が目立つこともあります。
 
 [^palette]: imgix の [Color Palette](https://docs.imgix.com/apis/rendering/color-palette) で調べることもできます。
 
@@ -59,17 +59,17 @@ imgix はサーバー上のファイルを GET する時にクエリーパラメ
 
 画像にちょっとしたテキストを追加したい場合は、[Text](https://docs.imgix.com/apis/rendering/text) を利用できます(図 3-1)。
 
-![テキストのサンプル、テキストを画像の右下に追加した画像](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/f29f5e54770c46d2af4fe504b1b700f0/process-screen-shot-by-imgix-rough-cut.png?w=600\&h=203\&auto=compress%2Cformat%2Cenhance\&rect=14%2C14%2C600%2C200\&bg=ff252525\&pad-left=4\&txt=%24+npm+run+preview\&txt-color=ffffffff\&txt-pad=20\&txt-size=40)*図 3-1 txt=$%20npm%20run%20preview などでテキスト追加*
+![テキストのサンプル、簡単なテキストをオーバーレイ表示させた画像](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/2cedc61358844c938d9dfc28aa3102af/process-screen-shot-by-imgix-text.png?w=600\&h=257\&auto=compress%2Cformat\&txt=%3Aset+listchars%3Dnbsp%3A%26\&txt-color=ffffffff\&txt-pad=20\&txt-size=40)*図 3-1 txt=%3Aset%20listchars%3Dnbsp%3A%26 などでテキスト追加*
 
-ただし、日本語や絵文字などもある程度指定できますが、エンコードの問題もあるのでクエリーパラメーターにするには [Base64 Variants](https://docs.imgix.com/apis/rendering#base64-variants) を使うなどの対応が必要です(図 3-2)。
+ただし、日本語や emoji などもある程度指定できますが、エンコードの問題もあるのでクエリーパラメーターにするには [Base64 Variants](https://docs.imgix.com/apis/rendering#base64-variants) を使うなどの対応が必要です(図 3-2)。
 
-![テキストのサンプル、emoji を含むテキストを追加した画像](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/f29f5e54770c46d2af4fe504b1b700f0/process-screen-shot-by-imgix-rough-cut.png?w=600\&h=203\&auto=compress%2Cformat%2Cenhance\&rect=14%2C14%2C600%2C200\&bg=ff252525\&pad-left=4\&txt64=8J-RgOODl-ODrOODk-ODpeODvA\&txt-color=ffffffff\&txt-pad=20\&txt-size=40)*図 3-2 txt64=8J-RgOODl-ODrOODk-ODpeODvA でテキスト追加*
+![テキストのサンプル、emoji を含むテキストを追加した画像](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/2cedc61358844c938d9dfc28aa3102af/process-screen-shot-by-imgix-text.png?w=600\&h=257\&auto=compress%2Cformat\&txt64=44OG44K544OI4pyP77iP\&txt-color=ffffffff\&txt-pad=20\&txt-size=40)*図 3-2 txt64=44OG44K544OI4pyP77iP でテキスト追加*
 
 また、日本語のフォントを指定できないようなので日本語での説明文の追加などには向いていません(図 3-3、図 3-4)。
 
-![テキストのサンプル、パラメーターとして「あいうえお、直径」と指定しているスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/a53346d470b040dda682b4a5ce65d9d9/process-screen-shot-by-imgix-font.png?auto=compress%2Cformat\&w=600\&h=300\&rect=620%2C50%2C600%2C300\&pad=8\&border=1%2C55000000\&border-radius=1)*図 3-3 「あいうえお、直径」と指定している*
+![テキストのサンプル、パラメーターとして「テスト、直径」と指定しているスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/2247512ec81a46c5ac2060b5df5532d8/process-screen-shot-by-imgix-font.png?auto=compress%2Cformat\&border=1%2C55000000\&border-radius=1)*図 3-3 「テスト、直径」と指定している*
 
-![テキストのサンプル、日本語のフォントではないため「直径」などのテキスト表示に違和感がある画像](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/f29f5e54770c46d2af4fe504b1b700f0/process-screen-shot-by-imgix-rough-cut.png?w=600\&h=203\&auto=compress%2Cformat%2Cenhance\&rect=14%2C14%2C600%2C200\&bg=ff252525\&pad-left=4\&txt64=44GC44GE44GG44GI44GK44CB55u05b6E\&txt-color=ffffffff\&txt-pad=20\&txt-size=40)*図 3-4 違和感のある表示になる*
+![テキストのサンプル、日本語のフォントではないため「直径」などのテキスト表示に違和感がある画像](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/2cedc61358844c938d9dfc28aa3102af/process-screen-shot-by-imgix-text.png?w=600\&h=257\&auto=compress%2Cformat\&txt64=44OG44K544OI44CB55u05b6E\&txt-color=ffffffff\&txt-pad=20\&txt-size=40)*図 3-4 違和感のある表示になる*
 
 ## 見やすくする
 
@@ -79,14 +79,22 @@ imgix はサーバー上のファイルを GET する時にクエリーパラメ
 
 ![パディングのサンプル、パディングを追加した画像](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/f29f5e54770c46d2af4fe504b1b700f0/process-screen-shot-by-imgix-rough-cut.png?w=600\&h=203\&auto=compress%2Cformat%2Cenhance\&rect=14%2C14%2C600%2C200\&bg=ff252525\&pad-left=4)*図 4-2 auto=enhanceで見やすくしてました*
 
+## 画像 URL の文字数制限
+
+Zenn 記事の場合は画像プロキシが入るので画像 URL の文字数に制限があります[^limit]。上記の例ではテキストの追加サンプル(図 3-1 など)はわりとギリギリなところまで行っています。
+
+もしも制限を超えてしまう場合は、加工された画像をダウンロードし再アップロードすることで対応できます(クエリーパラメーターを指定しなくてよい分だけ URL を短縮できる)。
+
+なお、画像をダウンロードする場合は「`auto` などの圧縮関連のパラメーターは外す」ようにしないと画像が劣化してしまうので注意が必要です。
+
+[^limit]: <https://github.com/zenn-dev/zenn-community/issues/316> <https://support.cloudinary.com/hc/en-us/articles/207746165-Why-do-I-get-a-public-ID-too-long-error-when-trying-to-fetch-from-a-remote-URL->
+
 ## おわりに
 
 今回あらためて記事にしてみて「クエリーパラメーターでのスクリーンショットの加工はやはり便利」と再確認できました。
 
-とくに[記事の作成に Headless CMS を使っている](https://zenn.dev/hankei6km/articles/writing-article-with-headless-cms)関係から「画像を調整してからアップロード」を繰り返さないですむのは使い勝手が良いと言えます[^adjust]。
+とくに[記事の作成に Headless CMS を使っている](https://zenn.dev/hankei6km/articles/writing-article-with-headless-cms)関係から「画像を調整してからアップロード」を繰り返さないですむのは使い勝手が良いと言えます。
 
 そのようなわけで、今後はスクリーンショットの加工にも適度に使っていければと思っています[^undocument]。
 
-[^adjust]: ちなみに、図 3-3 のファイルはアップロード後にプレビューしてみると「縮小されて見えにくい」と思ったのですが、再アップロードせずにパラメーターで調整してしまいました。
-
-[^undocument]: 加工をやりすぎると「今はたまたまうまくいってるけど仕様上はアウト」みたいなものを踏む可能性もあるので程々に。
+[^undocument]: 加工をやりすぎると文字数の制限以外にも「今はたまたまうまくいってるけど仕様上はアウト」みたいなものを踏む可能性もあるので程々に。

@@ -143,9 +143,9 @@ Headless CMS から [Rendering API](https://docs.imgix.com/apis/rendering) の�
 
 プレビューや画像サイズなどを確認しながらパラメーターを指定できます。
 
-![ImageURL Workbench で画像のプレビューやサイズを表示しているスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/959ee4f71196411d9c01994f799ac703/edit-pitctures-with-imgix-image-url-workbench.png?auto=compress%2Cformat\&w=600\&h=430\&rect=40%2C80%2C600%2C430\&pad=8\&border=1%2C55000000\&border-radius=1)*プレビューとサイズ表示*
+![ImageURL Workbench で画像のプレビューやサイズを表示しているスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/959ee4f71196411d9c01994f799ac703/edit-pitctures-with-imgix-image-url-workbench.png?auto=compress%2Cformat\&w=600\&h=430\&rect=40%2C80%2C600%2C430\&border=1%2C55000000\&border-radius=1)*プレビューとサイズ表示*
 
-![ImageURL Workbench でパラメーターを指定している領域のスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/959ee4f71196411d9c01994f799ac703/edit-pitctures-with-imgix-image-url-workbench.png?auto=compress%2Cformat\&w=600\&h=600\&rect=650%2C130%2C600%2C600\&pad=8\&border=1%2C55000000\&border-radius=1)*パラメーターを指定*
+![ImageURL Workbench でパラメーターを指定している領域のスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/959ee4f71196411d9c01994f799ac703/edit-pitctures-with-imgix-image-url-workbench.png?auto=compress%2Cformat\&w=600\&h=600\&rect=650%2C130%2C600%2C600\&border=1%2C55000000\&border-radius=1)*パラメーターを指定*
 
 ### レスポンス対応のタグを作るデモ
 

@@ -1,13 +1,14 @@
 ---
 id: edit-pitctures-with-imgix
 title: imgix が好き
-emoji: "\U0001F5BC️"
+emoji: 🖼️
 type: idea
 topics:
   - imgix
   - image
 published: true
 ---
+
 突然ですが [imgix](https://imgix.com/) が好きです。
 
 Headless CMS から [Rendering API](https://docs.imgix.com/apis/rendering) のみの利用ですが[^cms-imgix]「[パラメーターを作成するウェブアプリ](https://github.com/hankei6km/image-url-workbench)」「[WYSIWYG エディターからパラメーターを指定するツール](https://hankei6km.github.io/rehype-image-salt-doc/)」を作るくらいに好きです。
@@ -33,9 +34,7 @@ Headless CMS から [Rendering API](https://docs.imgix.com/apis/rendering) の�
 以下は「思っていた写真とちょっと違う」というときに使っているパラメーターを指定したときのサンプルです。
 
 :::message
-
 この記事全体で `auto=compress,format` とサイズ指定がされているのでオリジナル画像も画質は若干低下しています。
-
 :::
 
 ### Automatic で良さげにする
@@ -81,11 +80,9 @@ Headless CMS から [Rendering API](https://docs.imgix.com/apis/rendering) の�
 ![focalpoint 用の画像](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/f62544aa8a2d419dabb9ff52208405d6/edit-pitctures-with-imgix-focalpoint.jpg?w=600\&h=300\&auto=compress%2Cformat%2Cenhance\&fit=crop\&crop=focalpoint\&fp-z=1.8\&fp-x=0.68\&fp-y=0.55)*fit=crop\&crop=focalpoint\&fp-z=1.8\&fp-x=0.68\&fp-y=0.55*
 
 :::message
-
 画像を切り出して表示した後もサーバー上にはオリジナルのファイルが残っています。
 
-パラメーター除去して表示すればオリジナル画像が表示できるので注意してください。
-
+パラメーターを除去して表示すればオリジナルの画像が表示できるので注意してください。
 :::
 
 [^rect]: 似たようなことは [Source Rectangle Region](https://docs.imgix.com/apis/rendering/size/rect) でもできます。
@@ -146,9 +143,9 @@ Headless CMS から [Rendering API](https://docs.imgix.com/apis/rendering) の�
 
 プレビューや画像サイズなどを確認しながらパラメーターを指定できます。
 
-![ImageURL Workbench で画像のプレビューやサイズを表示しているスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/959ee4f71196411d9c01994f799ac703/edit-pitctures-with-imgix-image-url-workbench.png?w=600\&h=383\&rect=50%2C80%2C600%2C430)*プレビューとサイズ表示*
+![ImageURL Workbench で画像のプレビューやサイズを表示しているスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/959ee4f71196411d9c01994f799ac703/edit-pitctures-with-imgix-image-url-workbench.png?auto=compress%2Cformat\&w=600\&h=430\&rect=40%2C80%2C600%2C430\&pad=8\&border=1%2C55000000\&border-radius=1)*プレビューとサイズ表示*
 
-![ImageURL Workbench でパラメーターを指定している領域のスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/959ee4f71196411d9c01994f799ac703/edit-pitctures-with-imgix-image-url-workbench.png?w=600\&h=383\&rect=650%2C100%2C600%2C600)*パラメーターを指定*
+![ImageURL Workbench でパラメーターを指定している領域のスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/959ee4f71196411d9c01994f799ac703/edit-pitctures-with-imgix-image-url-workbench.png?auto=compress%2Cformat\&w=600\&h=600\&rect=650%2C130%2C600%2C600\&pad=8\&border=1%2C55000000\&border-radius=1)*パラメーターを指定*
 
 ### レスポンス対応のタグを作るデモ
 
@@ -164,4 +161,4 @@ Headless CMS から [Rendering API](https://docs.imgix.com/apis/rendering) の�
 
 という感じで「やっぱり imgix が好き」を再確認した記事でした。
 
-なお、この記事は「imgix はスクリーンショットでも便利に使える(仮)」に続く予定です。
+なお、この記事では写真の加工について書きましたが、imgix はスクリーンショットの加工でも便利に利用できたので[別記事にその辺のことも書きました](https://zenn.dev/hankei6km/articles/process-screen-shot-by-imgix)。

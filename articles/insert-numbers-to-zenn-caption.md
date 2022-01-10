@@ -357,11 +357,11 @@ numGroupName: simple
     import { remarkNumbers, RemarkNumbersOptions } from '../../src/lib/numbers.js'
 
     // ここにベンチマークのコードが記述されているとする。
-    ````
+    ```
 
-    以下はベンチをとってみた結果です(表 6-3、表 6-4)、`FUNC3` は回数が増えると実行時間は短縮される特性がわかりました(グラフ 6-2)。
+    以下はベンチをとってみた結果です(:num[tbl-bench-elapsed]、:num[tbl-bench-mem])、`FUNC3` は回数が増えると実行時間は短縮される特性がわかりました(:num[graph-bench-elapsed])。
 
-    ▼ *表 6-1 ベンチマーク(実行時間)*
+    ▼ *:num{#tbl-bench-elapsed} ベンチマーク(実行時間)*
 
     | 回数  | FUNC1 | FUNC2 | FUNC3 |
     | --- | ----- | ----- | ----- |
@@ -370,7 +370,7 @@ numGroupName: simple
     | 50  | 9000  | 25000 | 15000 |
     | 100 | 30000 | 50000 | 20000 |
 
-    ▼ *表 6-2 ベンチマーク(メモリー)*
+    ▼ *:num{#tbl-bench-mem} ベンチマーク(メモリー)*
 
     | 回数  | FUNC1 | FUNC2 | FUNC3 |
     | --- | ----- | ----- | ----- |
@@ -378,9 +378,10 @@ numGroupName: simple
     | 10  | 2000  | 4500  | 1000  |
     | 100 | 18000 | 50000 | 9000  |
 
-    ![ベンチマーク(実行時間)の折れ線グラフ、縦軸に実行時間、横軸に実行回数](/images/bench.png)*グラフ 6-1 ベンチマーク(実行時間)*
+    ![ベンチマーク(実行時間)の折れ線グラフ、縦軸に実行時間、横軸に実行回数](/images/graph-bench-elapsed.png)
+    *:num{#graph-bench-elapsed} ベンチマーク(実行時間)*
 
-    また、`FUNC3` では実行後の各要素は直線的な関係になります(図式 6-2)
+    また、`FUNC3` では実行後の各要素は直線的な関係になります(:num[diagram-cap])
 
     ```mermaid
     graph LR
@@ -388,7 +389,7 @@ numGroupName: simple
       B --> C[要素 C]
     ```
 
-    ▲ *図式 6-1 要素同士の関係*
+    ▲ *:num{#diagram-cap} 要素同士の関係*
 
 :::
 

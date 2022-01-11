@@ -13,11 +13,13 @@ published: true
 
 記事の画像に Zenn のキャプション表示を使うようにしていたら連番を付けたくなりました。
 
-少し考えた結果「キャプションに限らず Markdown 内で連番を割り振る remark プラグイン」を作ってみました。
+少し考えた結果「キャプションに限らず Markdown 内で連番を割り振る remark プラグイン」を作ってみました[^directive]。
 
 今回はこのプラグインをコマンドとしてインストールし 、Zenn 記事の作成に利用してみます。
 
 @[card](https://github.com/hankei6km/remark-numbers)
+
+[^directive]: [`remark-directive`](https://github.com/remarkjs/remark-directive) を使ってみたかったというのもあります。 [remark-directiveでMDから好きなHTMLを生成](https://zenn.dev/sasigume/articles/ec48c3a865c932)
 
 ## 概要
 

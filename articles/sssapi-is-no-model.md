@@ -11,11 +11,14 @@ published: true
 
 先日、[SSSAPI] の記事[^article]をみかけて面白そうだったのでスクラップでメモしながら試してみました。
 
+@[card](https://sssapi.app/)
 @[card](https://zenn.dev/hankei6km/scraps/d721b82416d6ac)
 
 上記スクラップは少し長くなってしまったので、この記事では特徴的なところをピックアップしてみます。
 
 なお、「ノーモデル」というワードは勢いで使っただけで、そのような技術用語はありません(ないですよね？)。その辺はおおらかな気持ちで流していただければと。
+
+追記: [SSSAPI] 運営の方から補足をいただいたので不明点だったところなどに反映させました。
 
 [^article]: <https://zenn.dev/kira_puka/articles/f9496a6a847799>
 
@@ -29,9 +32,7 @@ published: true
 
 ![スプレッドシートの共有設定画面でSSSAPI のシステムアカウントを追加しているスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/510fc2244aff417c815556335c289052/sssapi-is-no-mode-grant-access.png?w=600\&h=432\&auto=compress%2Cformat)*図 1-2 共有設定に [SSSAPI] のシステムアカウントを追加*
 
-スプレッドシート毎に設定するのも少し面倒ですが[^folder]、ドライブ全体ではなくファイル単位で共有を設定できるので気分的な安心感はあります。
-
-[^folder]: 試した限りではフォルダーの共有でも動作しましたがドキュメントには記載がないのでやって良いのかは不明です。
+スプレッドシート毎に設定するのも少し面倒ですが、そのような場合はフォルダーの共有でも利用できます。すべてのスプレッドシート一括での許可と比較すると部分的な設定や解除ができるので気分的な安心感があります。
 
 ## SSSAPI はステートフルである
 
@@ -72,7 +73,9 @@ sequenceDiagram
 
 ▲ *図 2-3 ステートの遷移状態(手動)*
 
-自動更新にする場合はコンソールから API Option を変更します(図 2-4)。これでスプレッドシートを更新すると [SSSAPI] 側に通知が届きビルドされるようになります(図 2-5)([連続して更新すると数分待つこともある](https://zenn.dev/link/comments/b7b89ab024221b))。
+自動更新にする場合はコンソールから API Option を変更します(図 2-4)。これでスプレッドシートを更新すると [SSSAPI] 側に通知が届きビルドされるようになります(図 2-5)。
+
+なお、スプレッドシートを連続して更新すると API ビルド開始まで待つことがありますが、これは Google Drive API の変更検知機能の仕様によるそうです(改善も検討されているそうです)。
 
 ![SSSAPI のコンソールで API の自動更新を ON にしているスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/8f3a22b5bca74f40b7f2d8da6a55958c/sssapi-is-no-mode-auto-update-opts.png?w=600\&h=342\&auto=compress%2Cformat)*図 2-4 設定により自動更新も可能*
 
@@ -101,11 +104,11 @@ sequenceDiagram
 
 ▲ *図 2-5 ステートの遷移状態(自動)*
 
-この構成は「スプレッドシートの更新にあわせて他サービスの処理を開始したい」ような場合、[SSSAPI] のビルド状況がわかりにくいのは難点ですが、パフォーマンスや耐障害性では有利だと予想できます[^csr]。
+この構成はデータ要求時に毎回スプレッドシートを読みにいく場合と比べてパフォーマンスや耐障害性では有利だと予想できます。また、現状ではスプレッドシート更新後に他サービスの処理を起動させにくいのですが、Webhbook 機能によるビルド状態の通知や GitHub Actions などとの連携も予定されているそうです。
 
-また、完了タイミングが読めない複数の更新を 1 つのレスポンスにしたい(いわゆるファンイン的なフロー)の場合、API を任意のタイミングでビルドできるのは使い勝手が良いと思われます[^trigger]。
+そして、API を任意のタイミングでビルドできるのは「完了タイミングが読めない複数の更新を 1 つのレスポンスにしたい(いわゆるファンイン的なフロー)」の場合などに使い勝手が良いと思われます[^trigger]。
 
-![複数の担当者が入力するフォーマットですべての項目が入力されているスプレッドシートのスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/9a19fdb1a870491b94fd064577cf8ee1/sssapi-is-no-mode-fan-in-before.png?auto=compress%2Cformat\&h64=MTMw\&rect64=MCw2LDM4MCwxMzA\&w64=Mzgw)*図 2-6 複数の担当者が入力するシート*
+![複数の担当者が入力するフォーマットですべての項目が入力されているスプレッドシートのスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/9a19fdb1a870491b94fd064577cf8ee1/sssapi-is-no-mode-fan-in-before.png?auto=compress%2Cformat\&h64=MTMw\&rect64=MCw2LDM4MCwxMzA\&w64=Mzgw)*図 2-6 複数の担当者が毎日入力するシート*
 
 ```json
 [
@@ -129,7 +132,7 @@ sequenceDiagram
 
 ▲ *図 2-7 API レスポンス*
 
-![スプレッドシートに未入力の項目があるスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/716c5c122b8e4c80898497f27e5b7049/sssapi-is-no-mode-fan-in-waiting.png?auto=compress%2Cformat\&h64=MTMw\&rect64=MCw4LDM4MCwxMzA\&w64=Mzgw)*図 2-8 新規に入力を開始する(API は更新待ち)*
+![スプレッドシートに未入力の項目があるスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/716c5c122b8e4c80898497f27e5b7049/sssapi-is-no-mode-fan-in-waiting.png?auto=compress%2Cformat\&h64=MTMw\&rect64=MCw4LDM4MCwxMzA\&w64=Mzgw)*図 2-8 新規に入力を開始する(入力途中なので API は更新待ち)*
 
 ```json
 [
@@ -177,15 +180,15 @@ sequenceDiagram
 
 ▲ *図 2-11 API レスポンスが切り替わる*
 
-この他に(利用プランにより件数が変わりますが) Build log には以前のステート(API のレスポンス)が残っていることから履歴を確認できます(図 2-12、図 2-13)。
+この他に(利用プランにより件数が変わりますが) Build Log には以前のステート(API のレスポンス)が残っていることから履歴を確認できます(図 2-12、図 2-13)。
+
+API からもクエリーパラメーターによる履歴指定での取得機能が追加されるそうなので、実装されれば「上記のような毎日入力されるシート(図 2-8)の履歴」などに応用できそうです。
 
 ![Build Log で複数の項目が表示されているスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/da21180bab1448a0baff7f27e01eaee6/sssapi-is-no-mode-build-log.png?w=600\&h=141\&auto=compress%2Cformat)*図 2-12 ビルドのログを確認できる*
 
 ![Build Log から以前の API のステートを表示しているスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/d4302887f87445e09586d45fb397f40e/sssapi-is-no-mode-build-log-preview.png?w=600\&h=401\&auto=compress%2Cformat)*図 2-13 ステートを表示*
 
 [^durabble]: この構成を知ったときに Azure の [Durable Functions](https://docs.microsoft.com/ja-jp/azure/azure-functions/durable/durable-functions-overview) が思い浮かびました(なんとなく似ているかなと)。
-
-[^csr]: おそらくですが、[SSSAPI] は動的な更新に軸足を置いているように思われるので(どこかの時点更新が完了していればよいので)、速度以外にその辺も関係しているのかなと。
 
 [^trigger]: API ビルドを起動する Webhook 的なものが欲しくなってきます。
 

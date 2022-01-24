@@ -548,9 +548,13 @@ jobs:
 
 ファイルを利用する側の挙動によっては利用できないことも多いのですが、うまく使えればファイルへの保存を回避できます。
 
+なお、[`clasp`] では利用できませんできした[^clasp-proc-subst]。
+
 ▼ *リスト 8-1 記述例*
 
     foo-cmd <(jq '.name = env.NAME' < secret_file_src.json | jq '.password = env.PASSWORD')
+
+[^clasp-proc-subst]: [Bash の Process Substitution で read write されるファイルの代替(clasp で ](https://zenn.dev/hankei6km/scraps/ac5f94c628520e)[`clasprc.json`](https://zenn.dev/hankei6km/scraps/ac5f94c628520e)[ をファイルにしないで認証させたい)](https://zenn.dev/hankei6km/scraps/ac5f94c628520e)
 
 ## おわりに
 

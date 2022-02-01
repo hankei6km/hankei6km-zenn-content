@@ -4,7 +4,7 @@ title: GitHub CLI でラベル名の入力補完をできるようにした
 emoji: 🏷️
 type: idea
 topics:
-  - gihubcli
+  - githubcli
   - bash
 published: true
 ---

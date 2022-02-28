@@ -384,9 +384,11 @@ p-t1-t2
 *   処理が完了した思っていたところで不用意にキャンセル処理が実行されている
 *   ループの回数が多ければリソースを圧迫する
 
-いくつか対応方法がありますが、不用意な実行については `Promise.race` で回避できました[^resource]。
+いくつか対応方法がありますが、不用意な実行については `Promise.race` で回避できました[^abort-controller][^resource]。
 
 [^cancel-by-promise]: これもアンチパターンに分類されそうなので、そもそも「やるな」となりそうですが。
+
+[^abort-controller]: Abort Controller を使う方法を[別の記事で書きました](https://zenn.dev/hankei6km/articles/promise-or-abort-controller)。
 
 [^resource]: \`Promise.race\` の内部的な実装がわからないので憶測ですが、各 Promise の状態を調べるためのハンドラーは設定していると思われます。よって、最終的には何らかのハンドラーが一斉に実行されている可能性はあります。
 

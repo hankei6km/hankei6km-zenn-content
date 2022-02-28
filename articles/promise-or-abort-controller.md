@@ -259,7 +259,7 @@ await asyncProc(timeoutPromise, idx)
   })
 ```
 
-また `Promise.race` は配列内の配置(優先度)を考えないと停止用 Promise の決定が伝わらない可能性もあります [^handlers]。
+また `Promise.race` は[配列内の配置(優先度)を考えないと停止用 Promise の決定が伝わらない可能性](https://zenn.dev/hankei6km/articles/promise-memo#promise.race-%E3%81%AF%E9%85%8D%E5%88%97%E3%81%AE%E5%85%88%E9%A0%AD%E5%81%B4%E3%82%92%E5%84%AA%E5%85%88%E3%81%99%E3%82%8B)もあります [^handlers]。
 
 [^handlers]: あとは`Promise.race` 内での Chain の扱いによってはリソースが圧迫される可能性などもあります。
 

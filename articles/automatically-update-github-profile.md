@@ -240,7 +240,7 @@ $ zx dist/mardock-card.js
 
 ![](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/b641c687f59647839dc0cba5a5de261a/automatically-update-github-profile-overview.png?auto=compress%2Cformat\&border64=MSw1NTAwMDAwMA\&rect64=NDQwLDExNjQsODgwLDIwMg)
 
-[小倉百人一首かるたデータ]の内容をランダムに返す API を [SSSAPI] と [Google Apps Script]\(スプレッドシート)で作成し、さらに HTML を出力するコマンドを作成しました。
+[小倉百人一首かるたデータ]の内容をランダムに返す API を [SSSAPI] と [Google Apps Script]\(スプレッドシート)で作成し、さらに HTML を出力するコマンドを作成しました[^ogura-shuffle-api]。
 
 なお、元のデータは LOD(Linked Open Data)なので、表示の方法はいろいろ工夫できそうですが今回は単純に `<a>` で表示しています[^lod]。
 
@@ -253,6 +253,8 @@ $ zx dist/ogura-shuffle.js
 ```
 
 [^lod]: LOD は <https://www.nic.ad.jp/ja/materials/iw/2014/proceedings/s15/s15-takeda.pdf> などを読んでみると面白そうなので、いずれなにか挑戦したいところです。
+
+[^ogura-shuffle-api]: API について記事にしました。<https://zenn.dev/hankei6km/articles/ogura-shuffle-api>
 
 ## README の生成
 

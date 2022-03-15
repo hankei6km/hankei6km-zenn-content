@@ -162,7 +162,7 @@ $ gcloud services enable sheets.googleapis.com --project "${PROJECT_ID}"
 ```yaml
 - id: "auth"
   name: "Authenticate to Google Cloud"
-  uses: "google-github-actions/auth@v0.6.0"
+  uses: "google-github-actions/auth@v0"
   with:
     # 外部から切り替えできるように secret にしてある.
     workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}

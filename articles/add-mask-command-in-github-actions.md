@@ -12,6 +12,8 @@ published: true
 
 これについて、[別の記事](https://zenn.dev/hankei6km/articles/fetch-github-apps-token-by-google-apps-script)を作成中に [tibdex/github-app-token] Action のドキュメントを読んでいたところ、取得した Token をマスクしていたので方法を調べてみました。
 
+追記:「試してみる」節に「他テキストとの表示」を追加しました。
+
 ## API での設定
 
 Action のソースを読むと [`@actions/core`] の `setSecret()` を[利用していました](https://github.com/tibdex/github-app-token/blob/cd81e4cb40c3672f41b30a21758d6298e821691b/src/index.ts#L29)。
@@ -210,6 +212,65 @@ use-in-other-command:
 ![ジョブのログを表示し、ハッシュ値が表示されている部分を赤枠で示しているスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/d8358cde5b9b4731a007588000fcb016/add-mask-command-in-github-actions-other-command.png?w=853\&h=686\&auto=compress%2Cformat)
 
 少しスッキリしないのですが、`$ gh run view --log` などで取得したログから値を取り出せないという話なのか、他の落とし穴的なものがあるのかは不明です。
+
+### 他テキストとの表示
+
+以下の「空白で分離された」も気になったので試してみました。
+
+> 値をマスクすることにより、文字列または値がログに出力されることを防ぎます。 空白で分離された、マスクされた各語は "\*" という文字で置き換えられます。
+
+@[card](https://docs.github.com/ja/actions/using-workflows/workflow-commands-for-github-actions#masking-a-value-in-log)
+
+▼ **リスト 3-5**
+
+```yaml
+split-by-blank:
+  runs-on: ubuntu-latest
+
+  steps:
+    - uses: actions/checkout@v2
+
+    - name: Check not masked
+      run: echo 'ultra super secret'
+
+    - name: Add mask
+      run: |
+        echo -n '::add-mask::' > cmd.txt
+        cat secret_text.txt >> cmd.txt
+        cat cmd.txt
+        rm cmd.txt
+
+    - name: Check masked
+      run: echo 'ultra super secret'
+
+    - name: Check with blank
+      run: echo 'start ultra super secret end'
+
+    - name: Check without blank
+      run: echo 'startultra super secretend'
+
+    - name: Check with quote
+      run: echo '"ultra super secret"'
+
+    - name: Check each words
+      run: echo 'ultra A super B secret'
+
+    - name: Check each words(multi lines)
+      run: | 
+        echo 'ultra'
+        echo '-- separator --'
+        echo 'super'
+        echo '-- separator --'
+        echo 'secret'
+```
+
+結果としては空白なしで文字列が連続していても対象となる文字列はマスクされました。また、空白で区切られた単語を個別に表示した場合はマスクされませんでした。
+
+▼ **図 3-5**
+
+![](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/5177aba9ecf54cf08778cbf5f6c4e209/add-mask-command-in-github-actions-split.png?auto=compress%2Cformat)
+
+感覚的に予想する挙動との違いはなかったのですが、これも少しスッキリしないところはあります。
 
 ## おわりに
 

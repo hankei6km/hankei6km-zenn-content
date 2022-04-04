@@ -554,7 +554,7 @@ jobs:
 
 @[card](https://docs.github.com/ja/actions/using-workflows/workflow-commands-for-github-actions#masking-a-value-in-log)
 
-この部分については、[別途記事にしました](http://localhost:8000/articles/add-mask-command-in-github-actions)。
+この部分については、[別途記事にしました](https://zenn.dev/hankei6km/articles/add-mask-command-in-github-actions)。
 
 [^refresh]: そのためのリフレッシュトークンだとも言えますが、やはりよろしくはないかなと。
 

@@ -538,11 +538,25 @@ jobs:
     -- フィールド表示(RAW) jq -r .password secret_file.json
     picture1
 
-これについて対応策は「表示しない」ということになりそうです[^update-secret]。
+~~これについて対応策は「表示しない」ということになりそうです。~~
+
+追記: 文字列を一時的にマスクするコマンドがありました。
+
+新しい値が確定した後に以下の `::add-mask` コマンドを使うとマスクできます。
+
+> ログに "Mona The Octocat" を出力すると、"\*\*\*" が表示されます。
+>
+> Shell
+>
+> ```bash
+> echo "::add-mask::Mona The Octocat"
+> ```
+
+@[card](https://docs.github.com/ja/actions/using-workflows/workflow-commands-for-github-actions#masking-a-value-in-log)
+
+この部分については、[別途記事にしました](http://localhost:8000/articles/add-mask-command-in-github-actions)。
 
 [^refresh]: そのためのリフレッシュトークンだとも言えますが、やはりよろしくはないかなと。
-
-[^update-secret]: ジョブの中から SECRET を更新すると対応できる可能性もありますが試してはいません。
 
 ## その他(Bash の Process Substitution)
 
@@ -568,8 +582,8 @@ jobs:
     値を設定するときのエスケープを回避するため
 *   ファイルを保存するディレクトリーなどはきちんと管理する
     うっかりアップロードしてしまわないため
-*   リフレッシュされた値を表示しない
-    マスクされないので
+*   リフレッシュされた値は表示しない、または `::add-mask` でマスクさせる
+    新しい値は SECRET に登録されていないので
 
 なお、現在では以下のような方向に進んでいるようです。今回のようなことは「昔は苦労したもんだ」的な過去の話になると思われます(願望)。
 

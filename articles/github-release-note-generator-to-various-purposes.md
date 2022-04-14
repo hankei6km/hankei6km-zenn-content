@@ -1,6 +1,6 @@
 ---
 id: github-release-note-generator-to-various-purposes
-title: GitHiub のリリースノート自動生成機能をリリースノート以外にも使ってみる
+title: GitHub のリリースノート自動生成機能をリリースノート以外にも使ってみる
 emoji: ⚗️
 type: idea
 topics:

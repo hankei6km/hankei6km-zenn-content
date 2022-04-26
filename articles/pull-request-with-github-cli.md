@@ -13,7 +13,7 @@ published: true
 [^hitori]: 今回はこれを一人プルリクエストと勝手に呼んでいます。
 
 :::message
-2022-04-25 `gh rerun` で再実行される JOB が "faild jobs" ではなく "all jobs" であったので修正しました。
+2022-04-26 `gh run rerun` の記述を `--failed` 付きに変更しました。
 :::
 
 ## プルリクエストの作成
@@ -132,7 +132,7 @@ push-to-gas     Run tests       2022-04-21T04:47:52.0785244Z [!] Error: 'default
 
 失敗した原因が push したコードではなく他の要因だった場合、原因を取り除いてから再実行したいことがあります。
 
-そのようなときは `gh run rerun` を run-id の指定なしで使うと実行に失敗したワークフローの一覧から再実行でます。~~また、このとき実行されるのは failed な JOB になります(ウェブ UI での Re-run failed jobs と同じ)~~。全ての JOB が実行されます(Re-run all jobs と同じ) 。
+そのようなときは `gh run rerun --failed` を run-id の指定なしで使うと実行に失敗したワークフローの一覧から再実行でます。このとき `--failed` を付けているので、実行されるのは failed な JOB になります(ウェブ UI での Re-run failed jobs と同じ)。
 
 environment の設定を間違えていたときや、[dependabot] の bump が secret 関連で失敗しているときなどに利用しています。
 

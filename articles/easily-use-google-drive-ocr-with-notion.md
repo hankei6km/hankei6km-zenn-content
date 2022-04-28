@@ -34,7 +34,7 @@ Google Drive 上に保存されている PDF と画像に OCR を実行し、結
 
 また、少し設定を頑張れば「スマートフォンのカメラで撮影した後、リアルタイムに近い感覚で OCR の実行」も可能です。
 
-▼ **図 1-3 フォルダーに保存後、10 から 20 秒程でテキストが登録される**
+▼ **図 1-3 フォルダーに保存後、10 ～ 20 秒くらいでテキストが登録される(実際の画面にタイムコードは表示されません)**
 ![](/images/easily-use-google-drive-ocr-with-notion/easily-use-google-drive-ocr-with-notion-at-uploaded.gif)
 
 ## おおまかな設定の流れ

@@ -1,6 +1,6 @@
 ---
 id: avoid-disabling-workflow-in-github-actions
-title: GitHub Actions ワークフローが 60 日後に停止されるのを手っ取り早く回避する
+title: GitHub Actions のワークフローが 60 日後に停止されるのを手っ取り早く回避する
 emoji: 🗓️
 type: tech
 topics:

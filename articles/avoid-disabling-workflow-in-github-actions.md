@@ -8,7 +8,7 @@ topics:
 published: true
 ---
 
-GitHub Action から「このワークフローはもうすぐ無効化されるよ」的なメールが届きました。
+GitHub から「このワークフローはもうすぐ無効化されるよ」的なメールが届きました。
 
 > The "append-04-13" workflow in hankei6km/gha-now-to-sheet will be disabled soon
 

@@ -28,6 +28,11 @@ published: true
 
 ![作成した地図に登録されているスポットを表示しているスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/6d767a0124ab4131b38b73ccfdcbe284/make-jog-map-by-geolonia-pwa-map-appsheet-sssapi-intro-2.png?w=1440\&h=774\&auto=compress%2Cformat)
 
+以下のリンクから実際に動作する地図を確認できます。
+
+@[card](https://github.com/hankei6km/pwamap-tamariver-jog-map)
+@[card](https://hankei6km.github.io/pwamap-tamariver-jog-map/)
+
 ## 作り方
 
 今回はいわゆる〇〇スポットや聖地とかの有名な場所ではないので「事前に住所などで検索してパソコンで入力する」のはちょっと大変そうです。

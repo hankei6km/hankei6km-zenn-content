@@ -140,7 +140,7 @@ GitHub Codespaces のコンテナ内から Google Drive をマウントしてみ
 
 現状では以下のような用途で利用していますが、やはり「入力履歴を永続化できるのは非常に良い」です。
 
-*   `.bash_history` などの入力履歴の永続化と Codespace 間での共有(この辺は別途記事にする予定)
+*   `.bash_history` などの入力履歴の永続化と Codespace 間での共有([別途記事にしました](https://zenn.dev/hankei6km/articles/persist-command-history-in-github-codesapces))
 *   シークレットなどを含むファイルの配置
 
 この他にもちょっとしたファイルのやりとりなどに利用できそうなので、自分が作るリポジトリでは使っていこうかと考えています。

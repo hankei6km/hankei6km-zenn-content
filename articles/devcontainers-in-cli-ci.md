@@ -285,11 +285,15 @@ jobs:
 
 ### 拡張機能
 
-従来の `devcontainer.json` では VSCode で利用する拡張機能や設定を記述できますが、これが何かに反映されることはなかったです。[現時点での仕様](https://github.com/devcontainers/spec/blob/main/docs/specs/devcontainerjson-reference.md)に `extensions` の記載はなかったので「拡張機能でフォーマッターなどを設定している」場合などで注意が必要です。
+従来の `devcontainer.json` では VSCode で利用する拡張機能や設定を記述できますが、これが何かに反映されることはなかったです。[現時点での仕様](https://github.com/devcontainers/spec/blob/main/docs/specs/devcontainerjson-reference.md)に `extensions` の記載はなく、[VS Code specific properties](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_vs-code-specific-properties) として扱わることになるそうです。
+
+@[card](https://zenn.dev/nmemoto/articles/devcontainer-cli)
+
+よって「拡張機能でフォーマッターなどを設定している」場合などで注意が必要です。
 
 ```json:devcontainer.json
 {
-  // 拡張機能関連の定義
+  // 従来の拡張機能関連の定義
   "extensions": ["esbenp.prettier-vscode"],
   "settings": {
     "[typescript]": {

@@ -255,6 +255,12 @@ $ time ./target/x86_64-unknown-linux-musl/release/xquo -w 1 < tmp/tmp_large.txt 
 
 ![](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/429d70449b88418da277c2bae509fa5a/using-jemalloc-in-rust%20-speeds-up-parallelism-chart.png?auto=compress%2Cformat)
 
+:::message
+作成したツール([xquo](https://github.com/hankei6km/xquo))の処理を更新したので、実行時間が最新版とは異なっています。
+
+現時点(2022-07-28)の値は「[Rust でも chan chan](https://zenn.dev/hankei6km/articles/channel-channel-in-rust#channel-%E7%94%9F%E6%88%90%E3%81%A8-send-%E5%9B%9E%E6%95%B0%E5%A2%97%E5%8A%A0%E3%81%AB%E3%82%88%E3%82%8B%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC%E3%83%98%E3%83%83%E3%83%89)」に掲載してありますが、傾向(jemalloc ありにしないと並列処理が遅い)としては同じになります。
+:::
+
 ## 考慮点
 
 個人的な感想としては「jemalloc 使うだけでこんなに改善できるなんて魔法のようじゃないか」という感じですが、その手の話にはやはりなにかしらのデメリットがあるものです。

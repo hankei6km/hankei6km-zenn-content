@@ -13,6 +13,10 @@ published: true
 
 @[card](https://github.blog/changelog/2022-07-28-github-cli-extension-to-manage-actions-cache/)
 
+:::message
+2022-08-02 追記: extension でもブランチ名での絞り込みが可能だったので修正しました。
+:::
+
 ## API を使う
 
 まずは extension ではなく GitHub の API を使ってリポジトリのキャッシュを管理する場合について。
@@ -169,9 +173,22 @@ Linux-cargo-$test_release_jemalloc-745cab0288fc37d... [203.51 MB]     refs/heads
 Linux-publish-745cab0288fc37d8864b0178ed01e0dc1153... [133.08 MB]     refs/tags/v0.2.0  4 days ago
 ```
 
+API の ref と同じようにブランチ名での絞り込みもできます。
+
+**図 3-3 ブランチ名での絞り込み**
+
+```shell-session
+$ gh actions-cache list --branch topic/fix-wrong-cache-key
+Showing 3 of 3 cache entries in hankei6km/xquo
+
+Linux-cargo-test_release_jemalloc-745cab0288fc37d8... [203.50 MB]     refs/heads/to...  2 days ago
+Linux-cargo-test_release-745cab0288fc37d8864b0178e... [136.02 MB]     refs/heads/to...  2 days ago
+Linux-cargo-test_debug-745cab0288fc37d8864b0178ed0... [170.82 MB]     refs/heads/to...  2 days ago
+```
+
 キーでの絞り込みもできますが、GLOB などは使えないようです。
 
-**図 3-3 キーでの絞り込みを試す**
+**図 3-4 キーでの絞り込みを試す**
 
 ```shell-session
 $ gh actions-cache list --limit 10 --key windows
@@ -191,7 +208,7 @@ $ gh actions-cache list --limit 10 --key "*install*"
 There are no Actions caches currently present in this repo or for the provided filters
 ```
 
-また API で使えた ref による絞り込みや表示項目の変更などはできないようです。
+なお、表示項目の変更などはできないようです。
 
 こう書くと良くない印象になりそうですが、表示は見やすいのでキー指定のミスなどは発見しやすいです。実際、キーに余分な `$` を含めていたのを見つけてしまいました。
 
@@ -201,7 +218,7 @@ There are no Actions caches currently present in this repo or for the provided f
 
 `delete` コマンドで削除できますがキーを指定する必票があります。部分一致ではエラーになるので、`list` コマンドでキーを確認する場合は省略されないようにする必要があります。ちょっと削除したいときの利用では少し面倒かもしれません。
 
-**図 3-4 削除はキーを利用する**
+**図 3-5 削除はキーを利用する**
 
 ```shell-session
 $ gh actions-cache list --limit 10 --key windows

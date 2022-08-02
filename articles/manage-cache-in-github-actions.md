@@ -101,13 +101,13 @@ $ gh api -H "Accept: application/vnd.github+json" "/repos/{owner}/{repo}/actions
 {"id":88,"key":"Linux-cargo-test_debug-745cab0288fc37d8864b0178ed01e0dc115354d51702a55b62bc511f28d37ef6","last_accessed_at":"2022-07-31T10:38:56.250000000Z"}
 ```
 
-## キャッシュの削除
+### キャッシュの削除
 
 間違えて作ってしまったキャッシュを削除したいときに利用します。こちらも ref などで対象を指定できますが、`id` を使うのがお手軽でよいかと思います。
 
 @[card](https://docs.github.com/en/rest/actions/cache#delete-a-github-actions-cache-for-a-repository-using-a-cache-id)
 
-**図 2-1 id が 90 のキャッシュを削除**
+**図 1-4 id が 90 のキャッシュを削除**
 
 ```shell-session
 $ gh api --method DELETE -H "Accept: application/vnd.github+json" /repos/{owner}/{repo}/actions/caches/90
@@ -120,7 +120,7 @@ $ gh api -H "Accept: application/vnd.github+json" "/repos/{owner}/{repo}/actions
 
 ただし、 Codespaces で自動的に付与される `GITHUB_TOKEN` ではエラーになります。
 
-**図 2-2 Codespaces ではエラーになる**
+**図 1-5 Codespaces ではエラーになる**
 
 ```shell-session
 $ gh api --method DELETE -H "Accept: application/vnd.github+json" /repos/{owner}/{repo}/actions/caches/90
@@ -143,7 +143,7 @@ extension なので GitHub CLI 環境にインストールする必票があり�
 
 [^container]: `gh` コマンドは GitHub へログインしてる必要があります。よって `Dockerfile` へ単純にコマンドを記述してもインストールできません。Dev Contaioenr へインストールする場合は、postStartCommand などを使うのが楽かと思います。
 
-**図 3-1 インストールコマンド**
+**図 2-1 インストールコマンド**
 
 ```shell-session
 $ gh extension install actions/gh-actions-cache
@@ -153,7 +153,7 @@ $ gh extension install actions/gh-actions-cache
 
 `list` コマンドで表示されます。このコマンドでは使用量もあわせて表示されます。
 
-**図 3-2 一覧表示**
+**図 2-2 一覧表示**
 
 ```shell-session
 $ gh actions-cache list --limit 10
@@ -175,7 +175,7 @@ Linux-publish-745cab0288fc37d8864b0178ed01e0dc1153... [133.08 MB]     refs/tags/
 
 API の ref と同じようにブランチ名での絞り込みもできます。
 
-**図 3-3 ブランチ名での絞り込み**
+**図 2-3 ブランチ名での絞り込み**
 
 ```shell-session
 $ gh actions-cache list --branch topic/fix-wrong-cache-key
@@ -188,7 +188,7 @@ Linux-cargo-test_debug-745cab0288fc37d8864b0178ed0... [170.82 MB]     refs/heads
 
 キーでの絞り込みもできますが、GLOB などは使えないようです。
 
-**図 3-4 キーでの絞り込みを試す**
+**図 2-4 キーでの絞り込みを試す**
 
 ```shell-session
 $ gh actions-cache list --limit 10 --key windows
@@ -218,7 +218,7 @@ There are no Actions caches currently present in this repo or for the provided f
 
 `delete` コマンドで削除できますがキーを指定する必票があります。部分一致ではエラーになるので、`list` コマンドでキーを確認する場合は省略されないようにする必要があります。ちょっと削除したいときの利用では少し面倒かもしれません。
 
-**図 3-5 削除はキーを利用する**
+**図 2-5 削除はキーを利用する**
 
 ```shell-session
 $ gh actions-cache list --limit 10 --key windows

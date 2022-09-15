@@ -1,6 +1,6 @@
 ---
 id: react-streaming-ssr-in-wasmedge-quickjs
-title: WasmEdge と QuickJS で Rect Streaming SSR のコンテナ作ったら 5MB に収まってしまった
+title: WasmEdge と QuickJS で Rect Streaming SSR のコンテナを作ったら 5MB に収まってしまった
 emoji: 🌤️
 type: tech
 topics:

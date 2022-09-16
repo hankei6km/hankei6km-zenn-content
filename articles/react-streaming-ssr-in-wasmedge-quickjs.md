@@ -1,6 +1,6 @@
 ---
 id: react-streaming-ssr-in-wasmedge-quickjs
-title: WasmEdge と QuickJS で Rect Streaming SSR のコンテナを作ったら 5MB に収まってしまった
+title: WasmEdge と QuickJS で React Streaming SSR のコンテナを作ったら 5MB に収まってしまった
 emoji: 🌤️
 type: tech
 topics:
@@ -300,7 +300,7 @@ $ sudo apt-get install podman
 
 ### イメージをビルド
 
-環境ができたので Rect Streaming SSR を実行できるコンテナのイメージをビルドしてみます(前節で各種ファイルをビルドしている前提で進めます)。
+環境ができたので React Streaming SSR を実行できるコンテナのイメージをビルドしてみます(前節で各種ファイルをビルドしている前提で進めます)。
 
 まずはディレクトを作成し必要なファイルをコピーしておきます。
 

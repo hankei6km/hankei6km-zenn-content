@@ -52,7 +52,7 @@ const array = string.split(",");
 
 とりあえずできました。  「ではコレはどうかな」と外部パッケージを使うように頼んでみます。
 
-**入力:** `node-fetchパッケージを使って"https://aiprogrammer.hashlab.jp/"からGETする。`
+**入力:** `node-fetchパッケージを使って"https://aiprogrammer.hashlab.jp/"からテキストをGETする。`
 
 **出力:**
 
@@ -61,7 +61,7 @@ const fetch = require('node-fetch');
 
 fetch('https://aiprogrammer.hashlab.jp/')
   .then(response => response.text())
-  .then(text => console.log(text))
+  .then(text => console.log(text));
 ```
 
 「え？できちゃうの？」

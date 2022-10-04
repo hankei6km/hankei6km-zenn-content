@@ -1,6 +1,6 @@
 ---
 id: try-ai-programmer
-title: AI Programmer を話のネタにと試してみたら
+title: AI Programmer を話のネタにと試してみたら…
 emoji: ✍️
 type: idea
 topics:

@@ -15,9 +15,19 @@ published: true
 
 ![](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/a6f636b1f68c49b484f867113defdc82/patch-from-github-repo-and-apply-local-repo-bump.png?auto=compress%2Cformat)
 
-以前からこのようなとき「GitHub の別のリポジトリからも [`cherry-pick` ] できるとよいのだけど」と思っていたのですが、「パッチ取得して適用するだけでは」と気が付きました。
+以前からこのようなとき「GitHub の別のリポジトリからも [`cherry-pick`] できるとよいのだけど」と思っていたのですが、「パッチ取得して適用するだけでは」と気が付きました。
 
 ということで試してみます。
+
+## GitHub 上にあるコミット
+
+今回は以下のコミットを他のリポジトリへ適用してみます。
+
+**図 1-1 適用したいコミット**
+
+![適用したいコミットをGitHub 上で表示しているスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/c72d119f40c9423e8767ee4ec3f937e4/patch-from-github-repo-and-apply-local-repo-commit.png?w=1418\&h=668\&auto=compress%2Cformat)
+
+*   <https://github.com/hankei6km/gas-gchanges2notion/commit/8f693b7e4bd65d325c5af14a5737affa070c6a81>
 
 ## GitHub のリポジトリからパッチを取得
 
@@ -31,7 +41,7 @@ published: true
 
 試してみると、`.patch` と `diff` では取得される情報が異なっていて、`.patch` を付加すると [`format-patch` ] と同様の結果を取得できるようです。
 
-**図 1-1 format-patch と同様の結果が取得される**
+**図 2-1 format-patch と同様の結果が取得される**
 
 ```shell-session
 $ curl -sL https://github.com/hankei6km/gas-gchanges2notion/commit/8f693b7e4bd65d325c5af14a5737affa070c6a81.patch
@@ -83,16 +93,16 @@ Git のリポジトリにパッチを適用するには [`git apply` ] と [`git
 
 今回はコミットも作成したいので、[`git am` ] を利用します。
 
-**図 2-1 パッチをパイプ経由で git am へ渡して適用**
+**図 3-1 パッチをパイプ経由で git am へ渡して適用**
 
 ```shell-session
 $ curl -sL https://github.com/hankei6km/gas-gchanges2notion/commit/8f693b7e4bd65d325c5af14a5737affa070c6a81.patch | git am                                                                                         
 Applying: chore: Use `import.meta` instead of `__dirname`
 ```
 
-適用されると下記のようにコミットが作成されます。
+適用されると下記のようにコミットが作成されます。`Author:` の他に `Date:` などもパッチの値が利用されるので、変更したい場合は [`--ignore-date`](https://git-scm.com/docs/git-am#Documentation/git-am.txt---ignore-date) などを利用します。
 
-**図 2-2 作成されたコミット**
+**図 3-2 作成されたコミット(Date などはパッチの値が利用されている)**
 
 ```shell-session
 $ git log -n 1
@@ -113,7 +123,7 @@ Date:   Thu Oct 13 05:49:18 2022 +0000
 
 今回もやはり適用できないリポジトリがありました。
 
-**図 3-1 コンフリクトで適用できない場合**
+**図 4-1 コンフリクトで適用できない場合**
 
 ```shell-session
 $ curl -sL https://github.com/hankei6km/gas-gchanges2notion/commit/8f693b7e4bd65d325c5af14a5737affa070c6a81.patch | git am                                                                                                   
@@ -129,7 +139,7 @@ To restore the original branch and stop patching, run "git am --abort".
 
 調べてみると今回はパッチの周辺行(コンテキスト)が期待されていたものと異なっているためにコンフリクトしていました。
 
-**リスト 3-1 パッチが期待している状態**
+**リスト 4-1 パッチが期待している状態**
 
     import { nodeResolve } from '@rollup/plugin-node-resolve'
     import json from '@rollup/plugin-json'
@@ -138,7 +148,7 @@ To restore the original branch and stop patching, run "git am --abort".
                                      <---- ここに行を追加したい
     const extensions = ['.ts', '.js']
 
-**リスト 3-2 実際の状態**
+**リスト 4-2 実際の状態**
 
     import { nodeResolve } from '@rollup/plugin-node-resolve'
     import license from 'rollup-plugin-license'
@@ -150,7 +160,7 @@ To restore the original branch and stop patching, run "git am --abort".
 
 対応方法はいくつかありますが、この場合であれば abort させた後、改めて [`-C`](https://git-scm.com/docs/git-apply#Documentation/git-apply.txt--Cltngt) オプション(周辺行の範囲を変更)を利用することで対応できます。
 
-**図 3-2 -C2 でコンフリクトを回避**
+**図 4-2 -C2 でコンフリクトを回避**
 
 ```shell-session
 # コンフリク状態を abort させる

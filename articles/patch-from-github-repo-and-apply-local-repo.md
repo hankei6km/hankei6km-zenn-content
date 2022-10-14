@@ -29,7 +29,7 @@ published: true
 
 *   <https://github.com/hankei6km/gas-gchanges2notion/commit/8f693b7e4bd65d325c5af14a5737affa070c6a81>
 
-## GitHub のリポジトリからパッチを取得
+## GitHub 上のリポジトリからパッチを取得
 
 これは検索するとすぐに出てきました。
 

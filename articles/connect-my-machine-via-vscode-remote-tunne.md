@@ -295,11 +295,15 @@ Remote Tunnels は Remote - SSH 拡張と似たような感じですが、いく
 
 これはクライアントにデスクトップ版 VSCode を利用している場合でも同じでした。
 
-**図 5-3 ポート転送用のサービスも GitHub との接続許可を行う**
+**図 5-3 転送設定にポートを追加すると devtunnels.ms のアドレスが割り振られる**
+
+![転送しているポート一覧で Local Address に devtunnels.ms のアドレスが割り振られているのを表示しているスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/2512132d388040df962a4465e632af2e/connect-my-machine-via-vscode-remote-tunnel-forward.png?w=720\&h=138\&auto=compress%2Cformat)
+
+**図 5-4 割り振られたアドレスを開くと GitHub との接続許可を確認される**
 
 ![](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/7698fb5e83a94ec18be57ff09fe4b5d4/connect-my-machine-via-vscode-remote-tunnel-devtunnel-auth01.png?auto=compress%2Cformat)
 
-**図 5-4 許可するとさらに接続先を信頼していよいか確認される**
+**図 5-5 許可するとさらに接続先を信頼してよいか確認される**
 
 ![](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/91468bd2f5c545aa8717517969cd0874/connect-my-machine-via-vscode-remote-tunnel-devtunnel-auth02.png?auto=compress%2Cformat)
 
@@ -319,7 +323,7 @@ Remote Tunnels は Remote - SSH 拡張と似たような感じですが、いく
 
 下記の図を見ると将来対応してくれるような気もするので、それまでは別の方法で対応といったところでしょうか。
 
-**図 5-5 Remote - SSH、Tunnels + Dev Containers が存在している([Remote Development Even Better](https://code.visualstudio.com/blogs/2022/12/07/remote-even-better)より引用)**
+**図 5-6 Remote - SSH、Tunnels + Dev Containers が存在している([Remote Development Even Better](https://code.visualstudio.com/blogs/2022/12/07/remote-even-better)より引用)**
 
 ![](https://code.visualstudio.com/assets/blogs/2022/12/07/tunneling-blog-remote-spectrum.png)
 
@@ -329,7 +333,7 @@ Remote Tunnels は Remote - SSH 拡張と似たような感じですが、いく
 
 vscode.dev で作成したコミットを [GitHub へプッシュすると署名された状態になります](https://qiita.com/uikou/items/b5f6a0cd4228c46159dc#github-%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E9%96%A2%E9%80%A3%E3%81%AE%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88)。しかし、トンネルで利用している場合は署名されないようです。
 
-**図 5-6 ブラウザー版でコミットとプッシュしても Verified は付かない**
+**図 5-7 ブラウザー版でコミットとプッシュしても Verified は付かない**
 
 ![GitHub 上のコミット一覧で Verfied が表示されていないスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/d7278fbc50e047f0877038c4ceb7da51/connect-my-machine-via-vscode-remote-tunnel-not-signed.png?w=990\&h=132\&auto=compress%2Cformat)
 

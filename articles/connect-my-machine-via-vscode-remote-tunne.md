@@ -50,7 +50,7 @@ VSCode の更新情報を見ていたら [Remote Development](https://code.visua
 
 **図 2-1 環境の概要**
 
-![My Machin が vscode.dev とのトンネルを作成し、Client Device が My Machine へ接続している図](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/ab42aeacc593486b94f70cca0f86e865/connect-my-machine-via-vscode-remote-tunnel-intro-current.png?w=811\&h=482\&auto=compress%2Cformat)
+![My Machin が vscode.dev とのトンネルを作成し、Client Device が My Machine へ接続している図](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/c23f8fa73c334053a952402222814e19/connect-my-machine-via-vscode-remote-tunnel-intro-current.png?w=811\&h=482\&auto=compress%2Cformat)
 
 ## インストールとトンネル作成
 

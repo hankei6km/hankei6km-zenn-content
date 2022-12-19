@@ -12,6 +12,8 @@ VSCode の更新情報を見ていたら [Remote Development](https://code.visua
 
 というわけで今回は Remote Tunnels のインストールや使い方、サーバーの少し突っ込んだ設定方法などについて。
 
+*   2022-12-19 コンテナで資格情報を再利用できる方法がわかったので該当箇所を編集しました。
+
 ## VSCode の Remote Tunnels とは
 
 簡単に言うと「普段使っている PC を外部のデバイスから VSCode として利用できる機能」となります。
@@ -456,24 +458,20 @@ $ mkdir vscode-cli vscode-server Documents
 $ docker run -it -u vscode -v "${PWD}/vscode-cli:/home/vscode/.vscode-cli" \
     -v "${PWD}/vscode-server:/home/vscode/.vscode-server" \
     -v "${PWD}/Documents:/home/vscode/Documents" \
-    --name vscode-tunnel  vscode-tunnel:latest
+    --name vscode-tunnel --hostname vscode-tunnel vscode-tunnel:latest
 ```
 
 軽く試してみた感じではサーバーをコンテナにしても動くことは確認できました。上記のコンテナは最低限の環境ですが、[DevContainer 用のイメージ](https://github.com/devcontainers/images)を利用すると用途別のコンテナを比較的容易に作れるかと思います。
 
-ただし、少し注意点もあります。コンテナでは資格情報(GitHub アカウントへの接続許可)の永続化は難しい状況です。コンテナの停止までは問題ないのですが、再作成すると再度 GitHub からの許可(ブラウザーから確認用のコード入力)が必要になります。
+~~ただし、少し注意点もあります。コンテナでは資格情報(GitHub アカウントへの接続許可)の永続化は難しい状況です。~~
+
+~~コンテナの停止までは問題ないのですが、再作成すると再度 GitHub からの許可(ブラウザーから確認用のコード入力)が必要になります。~~
+
+コンテナでもホスト名を固定することで資格情報を再利用できるようになりました。
 
 ::: message
 
-ドキュメントは見つけられなかったのですが、`code tunnel` では keyring が利用できない場合はフォールバックとして `~/.vscode-cli/` にトークンを書き込むようです。よって、コンテナ(サーバープロセス)を停止しても永続化されているのかと思います(コンテナ再作成後にトークンが使えなくなる利用は不明です)。
-
-:::
-
-::: message
-
-(トークンとの相性わるいのかなと思い)コンテナでも keyring を使えるようにしてみるとシークレット情報の保存はできるのですが、それでもコンテナを再作成すると再度の許可が必要になってしまいます。
-
-(仮想マシンの場合では再起動しても普通に keyring の資格情報を利用できています)
+ドキュメントは見つけられなかったのですが、`code tunnel` では keyring が利用できない場合はフォールバックとして `~/.vscode-cli/` にトークンを書き込むようです。よって、コンテナ(サーバープロセス)を停止しても永続化されているのかと思います。
 
 @[card](https://code.visualstudio.com/docs/editor/settings-sync?ck_subscriber_id=908806214#_troubleshooting-keychain-issues)
 

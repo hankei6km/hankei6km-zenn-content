@@ -53,7 +53,7 @@ published: true
 ![YAML ファイルを開いてインデントが色分けされているスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/20c839962fa449adb6509235266cfcee/vscode-deco-server-connected02.png?w=869\&h=638\&auto=compress%2Cformat)
 
 **図 2-4 拡張機能も切り替わるのでエフェクトも付くよ**
-![エディターで入力するとエフェクトが表示されている動画](/images/vscode-deco-server/vscode-deco-server-kitahhnn.gif)
+![エディターで入力するとエフェクトが表示されている動画](/images/vscode-deco-server/vscode-deco-server-kitahhnnn.gif)
 
 **図 2-5 接続を閉じるといつもの VSCode**
 

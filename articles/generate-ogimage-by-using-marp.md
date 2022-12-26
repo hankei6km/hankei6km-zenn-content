@@ -539,7 +539,7 @@ footer: |
 
 ![タイトルのスタイルを変更したサンプル](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/214e345791864e019ae58042c74fe143/generate-ogimage-by-using-marp-rotate.png?w=1200\&h=630\&auto=compress%2Cformat)
 
-@[card](https://hankei6km.github.io/test-marp-ogimage-pages/samples/rotate)
+@[card](https://hankei6km.github.io/test-marp-ogimage-pages/samples/title-style)
 
 ### 円グラフを表示(HTML + JavaScript の利用)
 

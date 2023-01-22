@@ -14,6 +14,12 @@ published: true
 @[card](https://github.blog/changelog/2022-07-28-github-cli-extension-to-manage-actions-cache/)
 
 :::message
+2023-01-22 追記: 2023 年 1 月の状況にあわせて新しい記事を作成しました。こちらでは GitHub 上のウェブ UI による管理と、ワークフローを使った自動化について記述してあります。
+
+@[card](https://zenn.dev/hankei6km/articles/manage-cache-in-github-actions-2023-01)
+:::
+
+:::message
 2022-08-02 追記: extension でもブランチ名での絞り込みが可能だったので修正しました。
 :::
 

@@ -96,7 +96,9 @@ Windows-install-f55c7f9330655b32c91858cedc1df6af68fb939379268f75dd3209a48b5b776a
 
 https://github.com/hankei6km/test-cleanup-caches-by-branch/blob/main/.github/workflows/cleanup.yml
 
-下記は、[Dependabot を設定しているリポジトリ](https://github.com/hankei6km/notion2content)のキャッシュ一覧です。先頭の 2 つに対応する PR はオープンされていますが、それより後ろの PR はすでにマージしてあります。
+下記は、[Dependabot を設定しているリポジトリ](https://github.com/hankei6km/notion2content)のキャッシュ一覧です(このリポジトリでは PR を `push` イベントで扱っています[^event])。先頭の 2 つに対応する PR はオープンされていますが、それより後ろの PR はすでにマージしてあります。
+
+[^event]: `pull_request` イベントを使っている場合は `ref` の表示が異なります。PR とイベントの関係などについては「[PR に紐付けたいワークフローは push ではなく pull\_request イベントを使おう \[GitHub Actions\]](https://zenn.dev/snowcait/articles/dc1851e421e600)」が参考になります。(`actions/checkout@v3` で `ref` を指定してもキャッシュには反映されない感じもするので、その辺は試行錯誤が必要そうです)
 
 **図 3-1 プルリクエストをマージしてもキャッシュは残る**
 

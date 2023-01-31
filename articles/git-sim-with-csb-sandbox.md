@@ -28,7 +28,7 @@ published: true
 
 ## 必要な環境
 
-利用するためには GitHub と CodeSandbox のアカウントが必要になります。また、動画ファイルの確認などがあるので、今回は CodeSandbox のクラウド ID は使わずに VSCode を利用します。
+利用するためには GitHub と CodeSandbox のアカウントが必要になります。また、動画ファイルの確認などがあるので、今回は CodeSandbox のクラウド IDE は使わずに VSCode を利用します。
 
 ## セットアップ
 

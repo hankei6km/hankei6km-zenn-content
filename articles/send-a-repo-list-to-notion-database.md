@@ -11,12 +11,12 @@ published: true
 
 Notion 上にリポジトリ一の覧があると「GitHub Mobile でリポジトを開くのに便利かな」と思い、コマンドラインツール `reposition` を作ってみました。
 
+@[card](https://github.com/hankei6km/reposition)
+
 実際に利用してみると GitHub Mobile との連携以外でもわりと良かったので、その辺と下記のような項目についてなど。
 
 *   GitHub Actions でリポジトリ一覧を取得、スケジュール実行する方法
 *   ツールを作るときに利用した環境
-
-@[card](https://github.com/hankei6km/reposition)
 
 ## 基本的な利用方法
 

@@ -5,6 +5,7 @@ emoji: 📱
 type: idea
 topics:
   - github
+  - githubmobile
   - githubactions
 published: true
 ---

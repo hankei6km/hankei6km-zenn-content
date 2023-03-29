@@ -1,6 +1,6 @@
 ---
 id: copilot-cli-seems-to-recognize-japanese-queries
-title: Copilot for CLI は日本語クエリーの夢を見るか？
+title: GitHub Copilot for CLI は日本語クエリーの夢を見るか？
 emoji: 🐑
 type: idea
 topics:
@@ -10,7 +10,7 @@ topics:
 published: true
 ---
 
-GitHub Copilot for CLI のウェイトリストに登録しておいたら順番がきたので少し試してみました。
+GitHub Copilot for CLI のウェイトリストに登録しておいたら順番がきたので少し試してみました(以降 Copilot for CLI と表記します)。
 
 @[card](https://githubnext.com/projects/copilot-cli/)
 

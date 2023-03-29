@@ -10,7 +10,7 @@ topics:
 published: true
 ---
 
-GitHub Copilot for CLI のウェイトリストに登録しておいたら順番がきたので少し試してみました(以降 Copilot for CLI と表記します)。
+GitHub Copilot for CLI のウェイトリストに登録しておいたら順番がきたので少し試してみました。
 
 @[card](https://githubnext.com/projects/copilot-cli/)
 
@@ -20,7 +20,7 @@ GitHub Copilot for CLI のウェイトリストに登録しておいたら順番
 $ git? package.json と package-lock.json をHEADに戻す
 ```
 
-ということで、今回は Copilot for CLI を主に日本語で使ってみた内容についてなど。
+ということで、今回は GitHub Copilot for CLI を主に日本語で使ってみた内容についてなど(以降 Copilot for CLI と表記します)。
 
 ## Copilot for CLI とは？
 

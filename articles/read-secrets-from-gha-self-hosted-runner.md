@@ -483,7 +483,7 @@ cat: /proc/2808/environ: Permission denied
 
 ただし、各ジョブ実行毎にランナーを登録する必要があります。これは [registration token を取得する必要がある](https://docs.github.com/en/rest/actions/self-hosted-runners?apiVersion=2022-11-28#create-a-registration-token-for-a-repository)ため、コンテナ内で `config.sh` と `run.sh` を動かすとジョブ側にプライベートキーがなどが見えてしまう可能性があります。よって、それらを避ける場合は何らかの対応が別途必要となります。
 
-**図 4-5 registration token を取得し `config.sh` と `run.sh` を実行する例(この場合はジョブから `$PRIVATE_KEY` を参照できてしまう)**
+**図 4-5 registration token を取得し `config.sh` と `run.sh` を実行するときの良くない例(ジョブから `$PRIVATE_KEY` を参照できてしまう)**
 
 ```bash
 export PRIVATE_KEY="<private key>" # 環境変数としてプライベートキーが挿入されている想定

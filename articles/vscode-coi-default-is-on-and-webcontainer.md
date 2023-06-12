@@ -14,10 +14,6 @@ published: true
 
 [vscode.dev] でもターミナルを使いたくなったので、[WebContainer] を利用する拡張機能を作ろうと思ったのが 4 月の末頃。
 
-**図 1 こういう感じにしたかった**
-
-![vscode.dev で拡張機能を利用し、vite サーバーを動かしているスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/21dae5f467334eefa038d128711368c2/vscode-coi-default-is-on-and-webcontainer-intro.png?w=1440\&h=860\&auto=compress%2Cformat)
-
 [WebView](https://github.com/microsoft/vscode-webview-ui-toolkit-samples) を利用すれば対応できるかと考えていたが、[WebContainer] は Cross Origin isolation(coi) を必要とするのが難点。
 
 *   [vscode.dev] のデフォルトでは coi が有効になっていない
@@ -25,9 +21,13 @@ published: true
 
 外部の画像が表示されないのでは困りそうなので試行錯誤してみたところ、回避する方法がわかってきたので拡張機能として実装してみた。
 
+**図 1 こういう感じで利用できている**
+
+![vscode.dev で拡張機能を利用し、vite サーバーを動かしているスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/21dae5f467334eefa038d128711368c2/vscode-coi-default-is-on-and-webcontainer-intro.png?w=1440\&h=860\&auto=compress%2Cformat)
+
 <!-- textlint-disable -->
 
-そして、当初の予定ではマーケットプレイスに publish した後、「いやー、苦労したっすよ（ドヤ顔）」って記事を書くつもりでいたら、[Run WebAssemblies in VS Code for the Web](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi) によるとデフォルトが `?vscode-coi=on` 変わるのかもという話。
+そして、当初の予定ではマーケットプレイスに publish した後、「いやー、苦労したっすよ（ドヤ顔）」って記事を書くつもりでいたら、[Run WebAssemblies in VS Code for the Web](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi) によるとデフォルトが `?vscode-coi=on` へ変わるのかもという話。
 
 <!-- textlint-enable -->
 

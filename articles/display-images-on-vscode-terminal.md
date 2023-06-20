@@ -5,12 +5,10 @@ emoji: 🖼️
 type: tech
 topics:
   - vscode
+  - terminal
+  - image
 published: true
 ---
-
-Zenn と連携しているリポジトリへ push するとエラーになるので、問題切り分けの記事。切り分けができたら上げなおす。
-
-![](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/c5f6a3162860436d9e481d689dbba334/Untitled.png?auto=compress%2Cformat)
 
 VSCode の更新情報で Preview features に「[Images in the terminal](https://code.visualstudio.com/updates/v1_79#_images-in-the-terminal)」という項目がありました。
 

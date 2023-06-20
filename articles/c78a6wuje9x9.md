@@ -1,7 +1,6 @@
 ---
-id: c78a6wuje9x9
 title: テスト
-emoji: 🖼️
+emoji: 🎄
 type: idea
 topics:
   - test

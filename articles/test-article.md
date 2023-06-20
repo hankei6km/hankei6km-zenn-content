@@ -1,4 +1,5 @@
 ---
+id: test-article
 title: 問題切り分け用の記事
 emoji: 🖼️
 type: idea

@@ -1,5 +1,4 @@
 ---
-id: test-article-3
 title: 問題切り分け用のテスト記事
 emoji: 📦
 type: tech

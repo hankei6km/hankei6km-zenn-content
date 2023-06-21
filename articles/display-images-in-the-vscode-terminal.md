@@ -2,7 +2,7 @@
 id: display-images-in-the-vscode-terminal
 title: VSCode のターミナル内で画像を表示できるようになったので試してみた
 emoji: 🖼️
-type: tech
+type: idea
 topics:
   - vscode
   - terminal

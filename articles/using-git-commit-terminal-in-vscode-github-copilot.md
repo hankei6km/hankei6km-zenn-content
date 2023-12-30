@@ -85,6 +85,16 @@ $ export GIT_EDITOR="code --wait"
 
 この辺の編集支援だけでもやりやすくなるので「もうデフォルトのままでもいいんじゃないかな」という気にもなってきます。
 
+::: message
+
+インラインチャットは [GitHub Copilot Chat] 拡張機能をインストール後、以下の方法で開始できます。
+
+*   エディターで `ctrl` + `i`(vscode-vim とコンフリクトするかもしれません)
+*   コマンドパレットから `Inline Chat: Start Inline Chat`
+*   エディターで右クリックし「Copilot / Start Inline Chat」
+
+:::
+
 ## コミットメッセージ生成機能に近づける
 
 「もうデフォルトのままでもいいんじゃないかな」と言いましたが、やはり隣の芝生は青く見えてきます。
@@ -182,6 +192,8 @@ GitHub を利用している場合、`git commit` した後はプルリクエス
 Copilot はなんとなくデフォルトのままで使っていましたが、コンテキストとなる情報を少し追加するだけでも生成物の精度が向上することを体験できました。
 
 今後も生成 AI におまかせするだけでなく、工夫しながら利用できればと思っています。
+
+[GitHub Copilot Chat]: https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat
 
 [GitHub Pull Requests and Issues]: https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github
 

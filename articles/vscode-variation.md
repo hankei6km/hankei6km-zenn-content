@@ -136,7 +136,7 @@ VS Code の機能を提供するバックエンドとしての VS Code。
 
 リモート開発で VS Code を利用するとき、サーバー側へエージェント的に自動インストールされる実行環境(Remote Extension Host などが動作する)。
 
-通常あまり意識することはない。
+通常あまり意識することはない。また、各種 Visual Studio Code Server とは異なるもの。
 
 ### Visual Studio Code Server(tunnel)
 

@@ -34,7 +34,7 @@ https://wiki.archlinux.jp/index.php/Visual_Studio_Code
 
 :::
 
-## デスクトップ版
+## デスクトップ用
 
 デスクトップ OS 用エディター(IDE)としての VS Code。
 

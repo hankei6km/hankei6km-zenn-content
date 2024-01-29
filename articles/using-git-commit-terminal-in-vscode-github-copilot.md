@@ -21,6 +21,12 @@ VS Code でコミットするときに GitHub Copilot を使っていると [コ
 
 そこで今回は「コミットメッセージをエディターで編集する利便性」を維持しつつ、「GitHub Copilot による生成機能もできるだけ利用しよう」という内容のメモになります。
 
+::: message
+
+*   2024-01-29 更新: コミットメッセージ編集時に diff を表示する簡単な方法を[コメントで教えていただいた](https://zenn.dev/link/comments/ce65c163ee48ad)ので変更しました
+
+:::
+
 ## VS Code のエディターでコミットメッセージを記述するとは
 
 VS Code でコミットメッセージを記述する方法としてはソース管理タブの利用が一般的かと思われます。
@@ -101,56 +107,55 @@ $ export GIT_EDITOR="code --wait"
 
 対応として `git commit` でエディターを開くときに最初から生成されたテキストが挿入される方法を探したのですが、見つかりませんでした。
 
-その代わりでもないのですが、サジェストなどの精度を上げる方法として、[Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) を利用しています。以下のようなスクリプトを `.git/hooks/prepare-commit-msg` へ設定しておくと `git commit` でエディターを開いたとき、diff がコメントとして挿入されます。
+その代わりでもないのですが、サジェストなどの精度を上げる方法として、`git commit` に `-v` を指定することでコミットメッセージの編集時に diff の内容を挿入してみます。
 
-**リスト 3-1 ****`COMMIT_EDITMSG`**** へ diff を挿入するスクリプト**
+https://qiita.com/magicant/items/f66528f83fccd1b1fdbb
+https://git-scm.com/docs/git-commit#Documentation/git-commit.txt--v
 
-```sh
-#!/bin/sh
+**図 3-1 ****`git commit -v`**** による diff の挿入**
 
-set -e
-
-COMMIT_MSG_FILE="${1}"
-COMMIT_SOURCE="${2}"
-SHA1="${3}"
-
-print_context() {
-    echo "" >> "${COMMIT_MSG_FILE}"
-    git diff --cached | sed 's/^/# /' >> "${COMMIT_MSG_FILE}"
-}
-
-case "${COMMIT_SOURCE},${SHA1}" in
-    ",")
-        print_context;;
-    "template,")
-        print_context;;
-    *) ;;
-esac
-```
+![git commit -v によりエディターで編集しているコミットメッセージに diff が挿入されているスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/a01e328ae57d47cfb41f738bf199f930/using-git-commit-terminal-in-vscode-github-copilot-commit-v.png?w=1046\&h=617\&auto=compress%2Cformat)
 
 前述のように `COMMIT_EDITMSG` の内容をコンテキストにしているようなので、diff の挿入によりサジェストやインラインチャットの応答が具体的になったと感じています。 (「なった」と言い切りたいところですが、やはりバラ付きはあります)
 
 また、この状態になればインラインチャットで “make commit message” のように指示すると、生成機能ぽい感じになります。 (以下の例は上手くいっている方なので、あまり過度な期待はしないでください)
 
-**図 3-1 生成機能とインラインチャットの比較(diff なし)**
+**図 3-2 生成機能とインラインチャットの比較(diff なし)**
 
 ![自動生成とインラインチャットへの指示を同時に行っているスクリーショット、インラインチャットの応答は簡素なものになっている](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/3c5e9e4392b44e85b4e07188609fef20/using-git-commit-terminal-in-vscode-github-copilot-comp.png?w=1134\&h=465\&auto=compress%2Cformat)
 
 *   生成機能: **Add readline functionality to index.mjs**
 *   インラインチャット: **Add new feature**
 
-**図 3-2 生成機能とインラインチャットの比較(diff あり)**
+**図 3-3 生成機能とインラインチャットの比較(diff あり)**
 
-![自動生成とインラインチャットへの指示を同時に行っているスクリーショット、どちらも同じ応答で内容も具体的になっている](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/e41c97af7f194c68846f579775359735/using-git-commit-terminal-in-vscode-github-copilot-comp-diff.png?w=1131\&h=663\&auto=compress%2Cformat)
+![自動生成とインラインチャットへの指示を同時に行っているスクリーショット、どちらも同じ応答で内容も具体的になっている](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/9841e310fffe4263ac6ead470fa65611/using-git-commit-terminal-in-vscode-github-copilot-comp-diff.png?w=1134\&h=692\&auto=compress%2Cformat)
 
 *   生成機能: **Add readline functionality to index.mjs**
 *   インラインチャット: **Add readline functionality to index.mjs**
 
-あとは、まだ試行錯誤中ですが[^history]、コミットテンプレートなどから指示を埋め込んでおくとより精度が良くなるかなと考えています。
+このような感じになるので、コミットメッセージ生成への影響を確認できたら、Git の設定で `-v` をデフォルトにもできます。
 
-[^history]: [Hook 用スクリプトを Dev Container 内に配置する Feature](https://github.com/hankei6km/h6-devcontainers-features/tree/main/src/prepare-commit-msg-context) を作ったとき履歴も含たのですが、単純な前方一致で「似ているコミットメッセージをサジェストする」ことが増えました。「使えそうなものはとにかく追加」な方針ではダメそうです。
+**リスト 3-1 ****`~/.gitconfig`**** または ****`~/.config/git/config`**** へ以下を追加**
+
+```git
+[commit]
+  verbose = true
+```
+
+あとは、まだ試行錯誤中ですが、コミットテンプレートなどから指示を埋め込んでおくとより精度が良くなるかなと考えています。
 
 そして、ここまで書いておいてアレなのですが、それでも生成機能に頼りたくなることもあります。その場合は普通に生成してから「コピペしちゃうんだな、これを」という対応にしています。
+
+::: message
+
+コミットメッセージ編集時、動的にテキストを挿入する方法としては [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) を利用する方法もあります。
+
+こちらはシェルスクリプトを作成したりと少し手間ですが、diff 以外の情報なども挿入できるようになります。ただし、あまりやりすぎるのも良くはないようです[^history]。
+
+[^history]: [Hook 用スクリプトを Dev Container 内に配置する Feature](https://github.com/hankei6km/h6-devcontainers-features/tree/main/src/prepare-commit-msg-context) を作ったとき履歴も含たのですが、単純な前方一致で「似ているコミットメッセージをサジェストする」ことが増えました。
+
+:::
 
 ## ターミナル内で `git commit` した後
 

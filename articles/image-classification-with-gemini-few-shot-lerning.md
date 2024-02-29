@@ -170,7 +170,7 @@ https://github.com/hankei6km/test-gemini-few-shot-lerning-mt-fuji
 | 2023-08-11 | ![](https://github.com/hankei6km/test-gemini-few-shot-lerning-mt-fuji/raw/main/images/20230811.jpeg) | 富士山は見えない | <https://www.pref.shizuoka.jp/fujisanview/365.html?date=20230811gotenba> |
 | 2023-08-12 | ![](https://github.com/hankei6km/test-gemini-few-shot-lerning-mt-fuji/raw/main/images/20230812.jpeg) | 富士山は見えない | <https://www.pref.shizuoka.jp/fujisanview/365.html?date=20230812gotenba> |
 
-ただし、逆に見えているのに見えない判定することも少しありました(19 日の方は見えないでも良い気もしますが)。
+ただし、逆に「見えているのに見えない」判定することも数件ありました(19 日の方は見えないでも良い気もしますが)。
 
 | Date       | Image                                                                                                | Answer   | Page                                                                     |
 | ---------- | ---------------------------------------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------ |

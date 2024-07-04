@@ -32,7 +32,7 @@ published: true
 
 今回は Notion を Goole Apps Script で Google ドキュメントへ変換する方法を後述しますが、他のサービスやツールであっても変換方法は調べればだいたいは出てくると思います。
 
-たとえば、[qfix-howm](https://sites.google.com/site/fudist/Home/qfixhowm) で Markdown 形式のメモをとってる場合であれば以下のようになります。
+たとえば、[QFixHowm](https://sites.google.com/site/fudist/Home/qfixhowm) で Markdown 形式のメモをとってる場合であれば以下のようになります。
 
 1.  `.md` を HTML へ変換
 

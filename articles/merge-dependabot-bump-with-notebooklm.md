@@ -15,13 +15,13 @@ published: true
 
 *   [Dependabot](https://docs.github.com/ja/code-security/dependabot/working-with-dependabot) の Bump を手動でゆるく対応している人
 *   英語のリリースノートを読むのは少し苦手という人
-*   NotebookML で簡単な効率化を試してみたい人
+*   NotebookLM で簡単な効率化を試してみたい人
 
 ## NotebookLM と考えるとは
 
 Bump の PR を見ていたら「対応が必要そう」なリリースノートがちらっと目に入りました。
 
-**図 2-1 backwards-incompatible chagesと書かれたリリースノート**
+**図 2-1 backwards-incompatible changesと書かれたリリースノート**
 
 ![GitHub Mobile でプルリクエストのリリースノートを見ているスクリーンショット](https://images.microcms-assets.io/assets/1fff6177c5c74aac8d5158dc17492c92/8cfa40781207406687ce151575908af5/merge-dependabot-bump-with-notebooklm-rel-note.png?w=864\&h=1920\&auto=compress%2Cformat)
 

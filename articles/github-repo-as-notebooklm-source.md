@@ -6,6 +6,7 @@ type: idea
 topics:
   - GitHub
   - NotebookLM
+  - googledocs
 published: true
 ---
 

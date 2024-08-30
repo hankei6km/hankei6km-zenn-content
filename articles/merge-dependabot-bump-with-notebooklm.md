@@ -154,6 +154,10 @@ https://github.com/hankei6km/vscode-ext-serve-run-wasm/blob/4cb8a8e4480e660f2f68
 
 `esbuild.config.mjs` を手動でソースに指定したことは少し手間だと感じました。また、他のファイルが関連することもあるので、できれはデフォルトブランチのツリーをまるっとソースにする対応をしたいところです。
 
+2024-08-30 追記: ツールとライブラリーなどを作りました。指定したリポジトリの Git 参照のファイルツリー(内容込み)を Google ドキュメントファイルに変換したりできます。
+
+@[card](https://zenn.dev/hankei6km/articles/github-repo-as-notebooklm-source)
+
 ## おわりに
 
 Dependabot の Bump 対応するときに、リリースノートをノートブックのソースにしながら対応方法を考えてみました。

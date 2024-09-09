@@ -2,7 +2,7 @@
 id: simple-pixel-screenshots-with-notebooklm
 title: Pixel Screenshots 風なことを NotebookLM でやってみたらわりと返答してくれるのだが、そっと消去されることもある
 emoji: 📇
-type: tech
+type: idea
 topics:
   - notebooklm
   - googledocs

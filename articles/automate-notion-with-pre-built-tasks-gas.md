@@ -5,7 +5,7 @@ emoji: 🤹
 type: tech
 topics:
   - notion
-  - googleappsscriptb
+  - googleappsscript
   - googlesheets
   - googlecalendar
 published: true
